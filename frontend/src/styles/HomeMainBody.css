@@ -1,0 +1,19 @@
+.home-main-body-wrapper {
+    background-color: transparent;
+    width: 80%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.workout-cards-container {
+    background-color: transparent;
+    width: 75%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+

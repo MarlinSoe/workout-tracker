@@ -1,0 +1,60 @@
+.workout-individual-card-wrapper {
+    background-color: white;
+    width: 100%;
+    border-radius: 14px;
+}
+
+
+/* Workout Title section */
+
+.workout-individual-card-title-container { 
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.workout-individual-card-title-container h1 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 600;
+    color: #5BAA96;
+}
+.workout-individual-card-title-trash-container img {
+    padding: 10px;
+}
+.workout-individual-card-title-trash-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3F3F3;
+    border-radius: 100%;
+}
+
+
+
+
+/*  Workout Info Section */
+
+.workout-individual-card-info-container {
+    background-color: transparent;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 30px;
+}
+.workout-individual-card-info-container p {
+    margin: 0;
+    margin-bottom: 7px;
+    color: #9C9C9C;
+}
+.workout-individual-card-info-container p:last-child {
+    margin: 0;
+    color: #9C9C9C;
+}
+.bolded-text {
+    font-weight: 700;
+    color: #333333;
+}

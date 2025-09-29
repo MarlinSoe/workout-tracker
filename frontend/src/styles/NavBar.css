@@ -1,0 +1,19 @@
+.nav-bar-wrapper {
+    background: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar-wrapper h1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.nav-bar-title-container {
+    background-color: transparent;
+    width: 80%;
+}
