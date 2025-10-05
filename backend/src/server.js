@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import workoutsRoutes from './routes/workoutsRoutes.js'
+import usersRoutes from './routes/usersRoutes.js'
 import { connectDB } from './config/db.js';
 import cors from 'cors'
 
@@ -16,6 +17,8 @@ app.use(express.json());
 
 
 app.use('/api/workouts', workoutsRoutes);
+app.use('/api/user', usersRoutes)
+
 
 connectDB().then(() => {
     app.listen(PORT, () => {
