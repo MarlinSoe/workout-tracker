@@ -1,7 +1,8 @@
 .workout-form-wrapper {
     background-color: transparent;
     width: 20%;
-    min-width: 260px;
+    max-width: 300px;
+
 
 }
 

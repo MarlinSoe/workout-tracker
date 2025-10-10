@@ -7,11 +7,16 @@ import toast from 'react-hot-toast'
 
 
 function WorkoutCard ({workout, setWorkout}) {
+    const user = JSON.parse(localStorage.getItem('user'));
 
     const handleDelete = async(e, id) => {
         e.preventDefault();
         try {
-            await api.delete(`workouts/${id}`);
+            await api.delete(`workouts/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
+            });
             toast.success('Workout deleted successfully!');
         } catch (error) {
             toast.error('Failed to delete the workout.');

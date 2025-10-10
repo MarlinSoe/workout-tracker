@@ -1,8 +1,9 @@
-import Workout from "../models/WorkOut.js";
+import Workout from "../models/Workout.js";
 
 export async function getAllWorkouts(req, res) {
     try {
-        const workouts = await Workout.find();
+        const user_id = req.user._id
+        const workouts = await Workout.find({ user_id });
         res.status(200).json(workouts)
     } catch (error) {
         console.log('Error in getAllWorkouts controller', error);
@@ -12,7 +13,8 @@ export async function getAllWorkouts(req, res) {
 
 export async function getWorkoutById(req, res) {
     try {
-        const workout = await Workout.findById(req.params.id);
+        const user_id = req.user._id
+        const workout = await Workout.find({ user_id }).findById(req.params.id);
         if (!workout) return res.status(404).json({message:'Workout not found.'})
         res.status(200).json(workout);
         
@@ -26,8 +28,9 @@ export async function getWorkoutById(req, res) {
 
 export async function createWorkout(req, res) {
     try {
+        const user_id = req.user._id
         const {workoutTitle, workoutLoad, workoutRep} = req.body;
-        const newWorkout = new Workout({workoutTitle:workoutTitle, workoutLoad:workoutLoad, workoutRep:workoutRep});
+        const newWorkout = new Workout({workoutTitle:workoutTitle, workoutLoad:workoutLoad, workoutRep:workoutRep, user_id: user_id});
 
         const savedWorkout = await newWorkout.save();
         res.status(201).json(savedWorkout);

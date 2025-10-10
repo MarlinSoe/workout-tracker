@@ -9,8 +9,16 @@ function WorkoutForm ({workouts, setWorkout}) {
     const [workoutLoad, setWorkoutLoad] = useState('');
     const [workoutRep, setWorkoutRep] = useState('');
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     const handleCreate = async (e) => {
         e.preventDefault();
+
+        if (!user) {
+            toast.error('You must be logged in.')
+            return
+        }
+
         if (!workoutTitle.trim() || !workoutLoad.trim() || !workoutRep.trim()) {
             toast.error('All field are required.')
             return;
@@ -20,11 +28,20 @@ function WorkoutForm ({workouts, setWorkout}) {
         try {
             setSaving(true);
             
-            const response = await api.post('/workouts', {
-                workoutTitle,
-                workoutLoad,
-                workoutRep
-            })
+            const response = await api.post(
+                '/workouts',
+                {
+                    workoutTitle,
+                    workoutLoad,
+                    workoutRep
+                },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${user.token}`
+                    }
+                }
+            );
+
             
             const createdWorkout = response.data;
 
@@ -70,7 +87,7 @@ function WorkoutForm ({workouts, setWorkout}) {
                     </div>
                 </form>
                 
-            </div>
+            </div> 
         </>
     );
 }
